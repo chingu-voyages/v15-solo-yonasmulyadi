@@ -1,0 +1,368 @@
+* {
+    box-sizing: border-box;
+}
+
+::placeholder {
+    padding-left: .1rem;
+}
+
+body {
+    background: url('../images/green-background.jpg') fixed center;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title {
+    background-color: rgb(15, 15, 14);
+    padding-top: .8rem;
+    height: 4rem;
+}
+
+.title__content {
+    text-align: center;
+    margin: 0;
+}
+
+.features {
+    width: 41.5%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.features__button {
+    height: 5vh;
+    width: 10vw;
+    margin: 0 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.card img {
+    width: 5%;
+    position: absolute;
+    top: 20.5rem;
+    left: 39.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in;
+}
+
+.board__cards__one {
+    height: 20vh;
+}
+
+.board__cards__one p:nth-of-type(1) {
+    margin: 0;
+    margin-top: 4rem;
+    margin-left: 5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: inline-block;
+    background: none;
+    transition: all .2s ease-in;
+}
+
+.board__cards__one p:nth-of-type(2) {
+    margin-left: 5.8rem;
+}
+
+.board__cards__deck img{
+    width: 20%;
+}
+
+.board__cards__deck {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.board__cards__deck img {
+    width: 8%;
+    padding-top: 5rem;
+}
+
+.board__score {
+    margin-left: 1.2rem;
+}
+
+.deck__count {
+    position: absolute;
+    top: 8rem;
+    left: 50rem;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.deck__count span {
+    margin-left: .5rem;
+    color: rgb(209, 209, 10);
+}
+
+.board__cards__two {
+    height: 20vh;
+}
+
+.board__cards__two p:nth-of-type(1) {
+    margin: 0;
+    margin-top: 4rem;
+    margin-left: 5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: inline-block;
+    background: none;
+    transition: all .2s ease-in;
+}
+
+.board__cards__two p:nth-of-type(2) {
+    margin-left: 5.8rem;
+}
+
+.register {
+    position: absolute;
+    top: 15vh;
+    background-color: #fff;
+    color: black;
+    width: 30%;
+    height: 75vh;
+    left: 28.5rem;
+    z-index: 1000;
+    text-align: center;
+    padding-top: 1.7rem;
+    transform: translateY(-3rem);
+    opacity: 0;
+    transition: all .7s ease-in;
+}
+
+.register__image {
+    display: block;
+    width: 10%;
+    margin: auto;
+}
+
+.register__form {
+    width: 80%;
+    margin: auto;
+}
+
+.register__title {
+    font-size: 1.9rem;
+    font-family: 'Anton', sans-serif;
+    color: #bea03d;
+    letter-spacing: .1rem;
+}
+
+.form__content {
+    font-size: .9rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.form__content #player_one,
+.form__content #player_two {
+    display: block;
+    margin-top: .4rem;
+    height: 5vh;
+    width: 100%;
+    padding-left: .5rem;
+    border: 1px solid rgb(185, 181, 181);
+}
+
+.betting__form {
+    display: flex;
+    margin: 0;
+}
+
+.betting__form1,
+.betting__form2 {
+    margin-top: 0;
+}
+
+.form__content #bet_one,
+.form__content #bet_two {
+    display: block;
+    margin-top: .4rem;
+    height: 5vh;
+    padding-left: .5rem;
+    border: 1px solid rgb(185, 181, 181);
+}
+
+.form__content #bet_one {
+    width: 95%;
+}
+
+.form__content #bet_two {
+    width: 100%;
+}
+
+.form__fieldset {
+    border: none;
+    padding: 0;
+}
+
+.form__fieldset__options {
+    display: flex;
+}
+
+.form__fieldset__options p:nth-of-type(2),
+.form__fieldset__options p:nth-of-type(3) {
+    margin-left: 1.5rem;
+}
+
+.form__button {
+    background-color: #000;
+    border: none;
+    width: 100%;
+    height: 6vh;
+    font-weight: 700;
+    margin-top: 1.4rem;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all .2s ease-in;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(34, 36, 21, 0.8), rgba(34, 36, 21, 0.9)), url('../images/joker.jpg');
+    background-size: cover;
+    z-index: 100;
+    transition: all 1s ease-out;
+}
+
+.social__media {
+    display: flex;
+    width: 35%;
+    margin-left: auto;
+    margin-right: 1rem;
+    padding-top: 1rem;
+    font-size: .9rem;
+}
+
+.social__link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 1rem .7rem;
+    border-radius: 5px;
+    transition: all .2s ease-in;
+
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.facebook__icon {
+    margin-right: .7rem;
+}
+
+.linkedIn {
+    background-color: #5b5b5b;
+    margin-right: 2rem;
+}
+
+.linkedIn__icon {
+    margin-right: .7rem;
+}
+
+.winner__modal {
+    border-radius: 5px; 
+    background-color: #fff; 
+    color: #000; 
+    width: 30%; 
+    height: 40vh; 
+    position: absolute; 
+    top: 25vh; 
+    left: 34.2%;
+    text-align: center;
+    z-index: 1000;
+    transform: translateY(-5rem);
+    opacity: 0;
+    transition: all .8s ease-out;
+}
+
+.winner__message {
+    font-size:2.5rem; 
+    margin-top: 2rem;
+    font-weight: 700;
+}
+
+.winner__icon {
+    display: block;
+    width: 20%;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.winner__button {
+    background: rgb(6, 196, 38);
+}
+
+.final__button {
+    background: rgb(201, 48, 1);
+}
+
+.winner__button,
+.final__button {
+    
+    width: 100%;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 1.65rem;
+    height: 10vh;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+/*
+    animation
+*/
+
+:focus {
+    outline: 0;
+}
+
+.features__button:hover {
+    transform: scale(.98);
+    color: rgb(236, 62, 62);
+    background-color: rgb(56, 56, 34);
+}
+
+.form__button:hover {
+    transform: scale(.98);
+    background: rgb(139, 16, 16);
+}
+
+.facebook:hover {
+    background-color: #283d6b;
+}
+
+.linkedIn:hover {
+    background-color: #424242;
+}
+
+.winner__button:hover {
+    background-color: green;
+}
+
+.final__button:hover {
+    background-color: darkred;
+}

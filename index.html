@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Black Jack for Two</title>
+        <meta name="description" content="A clone of the popular black jack game">
+        <meta name="author" content="Yonas Mulyadi">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="./assets/images/cards-icon.png"/>
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6c830587a0.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <noscript>
+            Please enable your javascript plugin, and reload the page.
+        </noscript>
+        <header class="title">
+            <h1 class="title__content"> Blackjack for Two </h1>
+        </header>
+        <main>
+            <section class="register">
+                <img src="./assets/images/cards-icon.png" alt="cards" class="register__image">
+                <h3 class="register__title">Welcome to the game!</h3>
+                <form name="register" class="register__form">
+                    <p class="form__player1 form__content">
+                        <label for="player_one">
+                            Player one's name:
+                            <input type="text" id="player_one" name="player_one_name" placeholder = "player one">
+                        </label>
+                    </p>
+                    <p class="form__player2 form__content">
+                        <label for="player_two">
+                            Player two's name:
+                            <input type="text" id="player_two" name="player_two_name" placeholder = "player two">
+                        </label>
+                    </p>
+                    <fieldset class="form__score form__content form__fieldset">
+                        <legend>Betting money per round?</legend>
+                        <div class="form__fieldset__options">
+                            <p><label class="bet__choice"> <input type="radio" name="bet_amount" required checked value="20"> 20 </label></p>
+                            <p><label class="bet__choice"> <input type="radio" name="bet_amount" required value="50"> 50 </label></p>
+                            <p><label class="bet__choice"> <input type="radio" name="bet_amount" required value="100"> 100 </label></p>
+                        </div>    
+                    </fieldset>
+                    </fieldset>
+                    <div class="form__content betting__form">
+                        <p class="betting__form1 form__content">
+                            <label for="bet_one">
+                                Player one's bet ($):
+                                <input type="text" id="bet_one" name="player_one_bet" placeholder = "amount">
+                            </label>
+                        </p>
+                        <p class="betting__form2 form__content">
+                            <label for="bet_two">
+                                Player two's bet ($):
+                                <input type="text" id="bet_two" name="player_two_bet" placeholder = "amount">
+                            </label>
+                        </p>
+                    </div>
+                    <button class="form__button">Play!</button>
+                </form>
+            </section>
+            <div class="overlay">
+                <nav class="social__media">
+                    <a href="https://www.linkedin.com/in/yonas-mulyadi-559841140/" class="social__link linkedIn" target="__blank"><i class="fab fa-linkedin linkedIn__icon"></i>Follow me on LinkedIn!</a>
+                    <a href="https://www.facebook.com/yonas.mulyadi" class="social__link facebook" target="__blank"><i class="fab fa-facebook-square facebook__icon"></i>Follow me on Facebook!</a>
+                </nav>
+            </div>
+            <section class="board">
+                <section class="board__cards">
+                    <div class="board__cards__one">
+                        <p><span class="player__name">Player one</span>'s score:<span class="board__score">25</span></p>
+                        <p><strong>Amount of money:</strong> <span class="player__bet">150</span> $</p>
+                    </div>
+                    <div class="board__cards__deck">
+                        <img src="assets/images/bee-diamondred.jpg" alt="deck" class="deck__cards">
+                        <p class="deck__count">remaining cards: <span></span></p>
+                    </div>
+                    <div class="board__cards__two">
+                        <p><span class="player__name">Player two</span>'s score:<span class="board__score">21</span></p>
+                        <p><strong>Amount of money:</strong> <span class="player__bet">200</span> $</p>
+                    </div>
+                </section>
+                <section class="board__bet"></section>
+            </section>
+            <section class="features">
+                <button class="features__button hit">hit</button>
+                <button class="features__button stay">stay</button>
+                <button class="features__button fold">fold</button>
+            </section>
+        </main>
+        <script src="./script.js" async defer></script>
+    </body>
+</html>

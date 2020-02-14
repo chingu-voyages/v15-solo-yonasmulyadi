@@ -283,7 +283,7 @@ body {
     background-color: #fff; 
     color: #000; 
     width: 30%; 
-    height: 40vh; 
+    height: 43vh; 
     position: absolute; 
     top: 25vh; 
     left: 34.2%;
@@ -308,7 +308,8 @@ body {
     margin-right: auto;
 }
 
-.winner__button {
+.winner__button,
+.surrender__button {
     background: rgb(6, 196, 38);
 }
 
@@ -317,7 +318,8 @@ body {
 }
 
 .winner__button,
-.final__button {
+.final__button,
+.surrender__button {
     width: 100%;
     border: none;
     border-bottom-left-radius: 5px;

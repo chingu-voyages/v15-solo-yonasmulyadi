@@ -5,6 +5,7 @@ let leftIncrement = 0.9;
 let cardLeftPosition = [29.6, 29.6];
 let isPlayerOneTurn = true;
 let isStayButtonClicked = false;
+let isFoldButtonClicked = false;
 let playersTotalScore = [0,0];
 let playersTotalBet = [0,0];
 let formResponses = [];
@@ -32,11 +33,13 @@ const changeCardPosition = (className) => {
     isPlayerOneTurn ? card.style.top = '6rem' : card.style.top = '35rem';
     if (isPlayerOneTurn)
     {
+        card.classList.add('card__top');
         cardLeftPosition[0] += leftIncrement;
         card.style.left = cardLeftPosition[0].toString() + 'rem';
     }
     else
     {
+        card.parentElement.classList.add('card__bottom');
         cardLeftPosition[1] += leftIncrement;
         card.style.left = cardLeftPosition[1].toString() + 'rem';
     }
@@ -57,7 +60,7 @@ const changePlayerIndicator = (boolean, sectionOne, sectionTwo) => {
     }  
 }
 
-const createCard = (sourceUrl,alternateText) => {
+const createCard = (sourceUrl, alternateText) => {
     let card = document.createElement('div');
     let image = document.createElement('img');
     card.classList.add("card");
@@ -104,13 +107,29 @@ const displayErrorMessage = (number, section, textField, message) => {
 }
 
 const reducePlayerBet = (index) => {
-    playersTotalBet[index] -= parseInt(formResponses[2]);
-    playerCapitals[index].textContent = playersTotalBet[index];
+    if (isFoldButtonClicked)
+    {
+        playersTotalBet[index] -= (parseInt(formResponses[2])/2);
+        playerCapitals[index].textContent = playersTotalBet[index];
+    }
+    else
+    {
+        playersTotalBet[index] -= parseInt(formResponses[2]);
+        playerCapitals[index].textContent = playersTotalBet[index];
+    }
 }
 
 const increasePlayerBet = (index) => {
-    playersTotalBet[index] += parseInt(formResponses[2]);
-    playerCapitals[index].textContent = playersTotalBet[index];
+    if (isFoldButtonClicked)
+    {
+        playersTotalBet[index] += (parseInt(formResponses[2])/2);
+        playerCapitals[index].textContent = playersTotalBet[index];
+    }
+    else
+    {
+        playersTotalBet[index] += parseInt(formResponses[2]);
+        playerCapitals[index].textContent = playersTotalBet[index];
+    }
 }
 
 const displayWinnerModal = () => {
@@ -247,6 +266,24 @@ const resetRound = () => {
             }, 10)
         })  
     } 
+    else if (document.querySelector('.surrender__button'))
+    {
+        const surrenderButton = document.querySelector(`.surrender__button`);
+        surrenderButton.addEventListener('click', () => {
+            resetRoundValue();
+            winnerModal.style.cssText = 'opacity:0; transform:translateY(-5rem)';
+            notificationOverlay.style.cssText = 'opacity:0; z-index: -100';
+            setTimeout(()=> {
+                board.removeChild(winnerModal);
+                document.querySelector('main').removeChild(notificationOverlay)
+            },1000)
+            setTimeout(() => {
+                changePlayerIndicator(isPlayerOneTurn,'.board__cards__one p', '.board__cards__two p');
+                deckCounter.innerHTML = totalCards;
+                updateScore(0);
+            }, 10)
+        })  
+    } 
     else if (document.querySelector('.final__button'))
     {
         const winnerButton = document.querySelector('.final__button');
@@ -341,7 +378,6 @@ hitButton.addEventListener('click', () => {
     cards[cardIndex] = null; 
     setTimeout(() => {
         changeCardPosition(cardOfType)
-        console.log(cardLeftPosition)
     },10);
     setTimeout(() => {
         updateAllCounter();
@@ -353,7 +389,27 @@ hitButton.addEventListener('click', () => {
 stayButton.addEventListener('click', () => {
     isPlayerOneTurn ? isPlayerOneTurn = false : isPlayerOneTurn = true;
     changePlayerIndicator(isPlayerOneTurn,'.board__cards__one p', '.board__cards__two p');
-    console.log(cardLeftPosition)
+})
+
+foldButton.addEventListener('click', () => {
+    if (isPlayerOneTurn) 
+    {
+        isFoldButtonClicked = true;
+        createNotifModal(`${formResponses[0]} surrender! ${formResponses[1]} wins the game!`,'continue..', "./assets/images/👻-Hantu-Apple.png", "winner", "winner__modal", "winner__message", "winner__icon", "surrender__button");
+        createNotifOverlay();
+        resetRound();
+        increasePlayerBet(1);
+        isFoldButtonClicked = false;
+    }
+    else 
+    {
+        isFoldButtonClicked = true;
+        createNotifModal(`${formResponses[1]} surrender! ${formResponses[0]} wins the game!`,'continue..', "./assets/images/👻-Hantu-Apple.png", "winner", "winner__modal", "winner__message", "winner__icon", "surrender__button");
+        createNotifOverlay();
+        resetRound();
+        increasePlayerBet(0);
+        isFoldButtonClicked = false;
+    }
 })
 
 window.addEventListener('load', () => {
@@ -362,30 +418,25 @@ window.addEventListener('load', () => {
 
 playerOneField.addEventListener('change', () => {
     recordResponses(event, 0);
-    console.log(formResponses);
 })
 
 playerTwoField.addEventListener('change', () => {
     recordResponses(event, 1);
-    console.log(formResponses);
 })
 
 for (el of betOptions)
 {
     el.addEventListener('change', () => {
         recordResponses(event, 2)
-        console.log(formResponses);
     })
 }
 
 playerOneBetField.addEventListener('change', () => {
     recordResponses(event, 3);
-    console.log(formResponses);
 })
 
 playerTwoBetField.addEventListener('change', () => {
     recordResponses(event, 4);
-    console.log(formResponses);
 })
 
 registerForm.querySelector(".register__form").addEventListener('submit', (event) => {
@@ -563,7 +614,6 @@ registerForm.querySelector(".register__form").addEventListener('submit', (event)
             }
         }
     }
-    console.log(formResponses)
 })
 
 //Code which run individually without event listeners

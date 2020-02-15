@@ -155,7 +155,7 @@ body {
 
 .register__title {
     font-size: 1.9rem;
-    font-family: 'Anton', sans-serif;
+    font-family: 'Pacifico', cursive;
     color: #bea03d;
     letter-spacing: .1rem;
 }
@@ -236,7 +236,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(rgba(34, 36, 21, 0.8), rgba(34, 36, 21, 0.9)), url('../images/joker.jpg');
+    background: linear-gradient(to right, rgba(34, 36, 21, 0.2), rgba(34, 36, 21, 0.3)), url('../images/poker.jpg');
     background-size: cover;
     z-index: 100;
     transition: all 1s ease-out;

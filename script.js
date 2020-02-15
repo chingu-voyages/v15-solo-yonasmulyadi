@@ -139,7 +139,7 @@ const displayWinnerModal = () => {
         increasePlayerBet(1);
         if (playersTotalBet[0] <= 0)
         {
-            createNotifModal(`${formResponses[1]} wins the game!`,'back to main menu', "./assets/images/golden-winners-cup_1284-18399.jpg", "winner", "winner__modal", "winner__message", "winner__icon", "final__button");
+            createNotifModal(`${formResponses[1]} wins the game!`,'back to main menu', "./assets/images/cards-icon.png", "winner", "winner__modal", "winner__message", "winner__icon", "final__button");
             createNotifOverlay();
             setTimeout(() => {
                 resetRound();
@@ -160,7 +160,7 @@ const displayWinnerModal = () => {
         increasePlayerBet(0);
         if (playersTotalBet[1] <= 0)
         {
-            createNotifModal(`${formResponses[0]} wins the game!`,'back to main menu', "./assets/images/golden-winners-cup_1284-18399.jpg", "winner", "winner__modal", "winner__message", "winner__icon", "final__button");
+            createNotifModal(`${formResponses[0]} wins the game!`,'back to main menu', "./assets/images/cards-icon.png", "winner", "winner__modal", "winner__message", "winner__icon", "final__button");
             createNotifOverlay();
             setTimeout(() => {
                 resetRound();
@@ -395,7 +395,7 @@ foldButton.addEventListener('click', () => {
     if (isPlayerOneTurn) 
     {
         isFoldButtonClicked = true;
-        createNotifModal(`${formResponses[0]} surrender! ${formResponses[1]} wins the game!`,'continue..', "./assets/images/👻-Hantu-Apple.png", "winner", "winner__modal", "winner__message", "winner__icon", "surrender__button");
+        createNotifModal(`${formResponses[0]} surrender! ${formResponses[1]} wins the round!`,'continue..', "./assets/images/👻-Hantu-Apple.png", "winner", "winner__modal", "winner__message", "winner__icon", "surrender__button");
         createNotifOverlay();
         resetRound();
         increasePlayerBet(1);
@@ -404,7 +404,7 @@ foldButton.addEventListener('click', () => {
     else 
     {
         isFoldButtonClicked = true;
-        createNotifModal(`${formResponses[1]} surrender! ${formResponses[0]} wins the game!`,'continue..', "./assets/images/👻-Hantu-Apple.png", "winner", "winner__modal", "winner__message", "winner__icon", "surrender__button");
+        createNotifModal(`${formResponses[1]} surrender! ${formResponses[0]} wins the round!`,'continue..', "./assets/images/👻-Hantu-Apple.png", "winner", "winner__modal", "winner__message", "winner__icon", "surrender__button");
         createNotifOverlay();
         resetRound();
         increasePlayerBet(0);

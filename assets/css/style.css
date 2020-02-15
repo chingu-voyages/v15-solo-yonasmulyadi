@@ -12,6 +12,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+label:not(.bet__choice),
+legend {
+    font-weight: 700;
+}
 .title {
     background-color: rgb(15, 15, 14);
     padding-top: .8rem;
@@ -236,7 +240,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, rgba(34, 36, 21, 0.2), rgba(34, 36, 21, 0.3)), url('../images/poker.jpg');
+    background: linear-gradient(to right, rgba(34, 36, 21, 0.5), rgba(34, 36, 21, 0.6)), url('../images/poker.jpg');
     background-size: cover;
     z-index: 100;
     transition: all 1s ease-out;
@@ -255,27 +259,49 @@ body {
     display: block;
     text-decoration: none;
     color: #fff;
-    padding: 1rem .7rem;
-    border-radius: 5px;
     transition: all .2s ease-in;
-
+    padding-right: 1rem;
+    height: 5vh;
+    background-color: #fff;
 }
 
-.facebook {
-    background-color: #3b5998;
+.social__link span {
+    display: block;
+    float: right;
+    padding-top: .7rem;
+}
+
+.facebook span {
+    color: #3b5998;
 }
 
 .facebook__icon {
     margin-right: .7rem;
+    height: 5vh;
+    width: 2.2rem;
+    font-size: 1.3rem;
+    padding-top: .6rem;
+    padding-left: .5rem;
+    background-color: #3b5998;
 }
 
 .linkedIn {
-    background-color: #5b5b5b;
     margin-right: 2rem;
+}
+
+.linkedIn span {
+    color: rgb(87, 86, 86);
 }
 
 .linkedIn__icon {
     margin-right: .7rem;
+    height: 5vh;
+    width: 2.2rem;
+    font-size: 1.3rem;
+    padding-top: .6rem;
+    padding-left: .5rem;
+    background-color: rgb(87, 86, 86);
+    color: #FFD700;
 }
 
 .winner__modal {
@@ -354,6 +380,11 @@ body {
 
 .facebook:hover {
     background-color: #283d6b;
+}
+
+.facebook:hover span,
+.linkedIn:hover span {
+    color: #fff;
 }
 
 .linkedIn:hover {

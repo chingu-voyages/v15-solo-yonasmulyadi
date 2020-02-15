@@ -7,7 +7,7 @@
 }
 
 body {
-    background: url('../images/green-background.jpg') fixed center;
+    background: linear-gradient(to right, rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url('../images/green-background.jpg') fixed center;
     color: #fff;
     font-family: 'Roboto', sans-serif;
 }
@@ -15,6 +15,10 @@ body {
 label:not(.bet__choice),
 legend {
     font-weight: 700;
+}
+
+main {
+    margin-top: 3rem;
 }
 .title {
     background-color: rgb(15, 15, 14);
@@ -309,7 +313,7 @@ legend {
     background-color: #fff; 
     color: #000; 
     width: 30%; 
-    height: 43vh; 
+    height: 40vh; 
     position: absolute; 
     top: 25vh; 
     left: 34.2%;

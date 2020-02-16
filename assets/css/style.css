@@ -114,6 +114,20 @@ main {
     color: rgb(209, 209, 10);
 }
 
+.back__button {
+    padding: 1.5rem 3rem;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    background-color: #c29d22;
+    color: #fff;
+    transition: all .2s ease-in;
+}
+
 .board__cards__two {
     height: 20vh;
 }
@@ -393,6 +407,10 @@ main {
 
 .linkedIn:hover {
     background-color: #424242;
+}
+
+.back__button:hover {
+    background-color: #796216;
 }
 
 .winner__button:hover {

@@ -17,6 +17,7 @@ const deckCounter = document.querySelector('.deck__count span');
 const hitButton = document.querySelector('.hit');
 const stayButton = document.querySelector('.stay');
 const foldButton = document.querySelector('.fold');
+const backButton = document.querySelector('.back__button');
 const registerForm = document.querySelector('.register');
 const playerOneField = document.querySelector('#player_one');
 const playerTwoField = document.querySelector('#player_two');
@@ -411,6 +412,10 @@ foldButton.addEventListener('click', () => {
         increasePlayerBet(0);
         isFoldButtonClicked = false;
     }
+})
+
+backButton.addEventListener('click', () => {
+    window.location.reload();
 })
 
 window.addEventListener('load', () => {

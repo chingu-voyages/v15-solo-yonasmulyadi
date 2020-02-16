@@ -9,6 +9,7 @@ let isFoldButtonClicked = false;
 let playersTotalScore = [0,0];
 let playersTotalBet = [0,0];
 let formResponses = [];
+formResponses[2] = 20;
 const board = document.querySelector('.board');
 const playerOneBoard = document.querySelector('.board__cards__one');
 const playerTwoBoard = document.querySelector('.board__cards__two');

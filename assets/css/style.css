@@ -80,6 +80,10 @@ main {
     margin-left: 5.8rem;
 }
 
+.board__cards__one p:nth-of-type(3) {
+    margin-left: 5.8rem;
+}
+
 .board__cards__deck img{
     width: 20%;
 }
@@ -134,7 +138,7 @@ main {
 
 .board__cards__two p:nth-of-type(1) {
     margin: 0;
-    margin-top: 4rem;
+    margin-top: 1rem;
     margin-left: 5rem;
     padding: 1rem;
     font-size: 1.6rem;
@@ -145,6 +149,10 @@ main {
 }
 
 .board__cards__two p:nth-of-type(2) {
+    margin-left: 5.8rem;
+}
+
+.board__cards__two p:nth-of-type(3) {
     margin-left: 5.8rem;
 }
 

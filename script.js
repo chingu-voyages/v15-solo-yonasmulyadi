@@ -8,6 +8,7 @@ let isStayButtonClicked = false;
 let isFoldButtonClicked = false;
 let playersTotalScore = [0,0];
 let playersTotalBet = [0,0];
+let playersStayCounter = [2,2];
 let formResponses = [];
 formResponses[2] = 20;
 const board = document.querySelector('.board');
@@ -21,6 +22,7 @@ const backButton = document.querySelector('.back__button');
 const registerForm = document.querySelector('.register');
 const playerOneField = document.querySelector('#player_one');
 const playerTwoField = document.querySelector('#player_two');
+const playersCounterDOM = document.querySelectorAll('.stay__counter');
 const betOptions = document.querySelectorAll('.bet__choice');
 const registerSubmitButton = document.querySelector('.form__button');
 const playerNames = document.querySelectorAll('.player__name');
@@ -135,6 +137,27 @@ const increasePlayerBet = (index) => {
 }
 
 const displayWinnerModal = () => {
+    if (playersStayCounter[0] === 0)
+    {
+        reducePlayerBet(0);
+        increasePlayerBet(1);
+        createNotifModal(`${formResponses[1]} wins this round!`,'continue...', "./assets/images/golden-winners-cup_1284-18399.jpg", "winner", "winner__modal", "winner__message", "winner__icon", "winner__button");
+        createNotifOverlay();
+        setTimeout(() => {
+            resetRound();
+        },10);
+    }
+    else if (playersStayCounter[1] === 0)
+    {
+        reducePlayerBet(1);
+        increasePlayerBet(0);
+        createNotifModal(`${formResponses[0]} wins this round!`,'continue...', "./assets/images/golden-winners-cup_1284-18399.jpg", "winner", "winner__modal", "winner__message", "winner__icon", "winner__button");
+            createNotifOverlay();
+            setTimeout(() => {
+                resetRound();
+            },10);
+    }
+
     if (playersTotalScore[0] >= 21)
     {
         reducePlayerBet(0);
@@ -235,6 +258,7 @@ const recordResponses = (event, index) => {
 const resetRoundValue = () => {
     playersTotalScore = [0,0];
     cardSectionCounter = 1;
+    playersStayCounter = [2,2];
     cardLeftPosition = [29.6, 29.6];
     isPlayerOneTurn = true;
     isStayButtonClicked = false;
@@ -292,6 +316,10 @@ const resetRound = () => {
         winnerButton.addEventListener('click', () => {
             window.location.reload();
         })
+    }
+    for (el of playersCounterDOM)
+    {
+        el.textContent = '2';
     }
 }
 
@@ -362,7 +390,6 @@ const updateScore = (increment) => {
     playerTwoBoard.querySelector('.board__score').innerHTML = playersTotalScore[1];
 }
 
-
 //Event listeners
 hitButton.addEventListener('click', () => {
     let cardIndex;
@@ -389,6 +416,18 @@ hitButton.addEventListener('click', () => {
 })
 
 stayButton.addEventListener('click', () => {
+    if (isPlayerOneTurn) 
+    {
+        playersStayCounter[0] -= 1;
+        playersCounterDOM[0].textContent = playersStayCounter[0];
+        displayWinnerModal();
+    }
+    else 
+    {
+        playersStayCounter[1] -= 1;
+        playersCounterDOM[1].textContent = playersStayCounter[1];
+        displayWinnerModal();
+    }
     isPlayerOneTurn ? isPlayerOneTurn = false : isPlayerOneTurn = true;
     changePlayerIndicator(isPlayerOneTurn,'.board__cards__one p', '.board__cards__two p');
 })
